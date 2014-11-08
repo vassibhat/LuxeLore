@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+    <link href="styles/main.css" rel="stylesheet" />
+
+    <script src="cordova.js"></script>
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.mobile.min.js"></script>
+
+    <script src="scripts/posts.js"></script>
+    <script src="scripts/app.js"></script>
+
+</head>
+<body>
+    <!--Home-->
+    <div id="tabstrip-posts"
+        data-role="view"
+        data-title="WP Posts"
+        data-model="app.usersService.viewModel">
+
+        <ul data-role="listview" 
+            data-style="inset"
+            data-bind="source: usersDataSource"
+            data-template="users-template">
+        </ul>
+    </div>
+
+    <!--Users template-->
+    <script type="text/x-kendo-tmpl" id="users-template">
+        <a>
+            <div>
+                <div>
+                    <span>${title}</span>
+                </div>
+                <div>
+                    <span>${author.name}</span>
+                </div>
+            </div>
+        </a>
+    </script>
+
+    <!--Layout-->
+    <div data-role="layout" data-id="tabstrip-layout">
+
+        <!--Header-->
+        <div data-role="header">
+            <div data-role="navbar">
+                <span data-role="view-title"></span>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div data-role="footer">
+            <div data-role="tabstrip">
+                <a href="#tabstrip-posts" data-icon="home">Wordpress Posts</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
